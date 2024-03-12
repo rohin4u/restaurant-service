@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://com.restaurant.soapservices"
+           targetNamespace="http://com.restaurant.soapservices"
+            elementFormDefault="qualified">
+
+
+        <xs:complexType name="restaurant-info">
+            <xs:sequence>
+                <xs:element name="restId" type="xs:string"/>
+                <xs:element name="address" type="xs:string"/>
+                <xs:element name="city" type="xs:string"/>
+                <xs:element name="country" type="xs:string"/>
+                <xs:element name="keys" type="xs:string"/>
+                <xs:element name="latitude" type="xs:double"/>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="pincode" type="xs:string"/>
+                <xs:element name="province" type="xs:string"/>
+                <xs:element name="website" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:complexType name="service-status">
+            <xs:sequence>
+                <xs:element name="status" type="xs:string"/>
+                <xs:element name="message" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+
+    <xs:element name="addRestaurantRequest">
+        <xs:complexType>
+            <xs:sequence>
+               <xs:element name="restaurantInfo" type="tns:restaurant-info"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addRestaurantResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="restaurantInfo" type="tns:restaurant-info"/>
+                <xs:element name="serviceStatus" type="tns:service-status"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getRestaurantByName">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getRestaurantResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="restaurantInfo" type="tns:restaurant-info"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateRestaurantRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="restaurantInfo" type="tns:restaurant-info"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="updateRestaurantResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:service-status"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>
